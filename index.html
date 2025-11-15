@@ -6,18 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
-      --bg: #050816;
-      --bg-elevated: #0b1022;
-      --accent: #4f46e5;
-      --accent-soft: rgba(79, 70, 229, 0.16);
-      --accent-strong: rgba(129, 140, 248, 0.25);
-      --text-main: #e5e7eb;
-      --text-muted: #9ca3af;
-      --border-subtle: rgba(148, 163, 184, 0.25);
+      --bg: #f8fafc;
+      --bg-elevated: #ffffff;
+      --accent: #2563eb;
+      --accent-soft: rgba(37, 99, 235, 0.12);
+      --accent-strong: rgba(37, 99, 235, 0.18);
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --border-subtle: rgba(148, 163, 184, 0.45);
       --danger: #ef4444;
       --radius-lg: 16px;
       --radius-xl: 24px;
-      --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.45);
+      --shadow-soft: 0 25px 45px rgba(15, 23, 42, 0.12);
     }
 
     * {
@@ -28,26 +28,21 @@
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         sans-serif;
-      background: radial-gradient(circle at top, #111827 0, #020617 45%, #000 100%);
+      background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
       color: var(--text-main);
       min-height: 100vh;
       display: flex;
       justify-content: center;
-      padding: 32px 16px;
+      padding: 32px 16px 48px;
     }
 
     .app {
       width: 100%;
-      max-width: 1100px;
-      background: linear-gradient(
-          135deg,
-          rgba(15, 23, 42, 0.96),
-          rgba(3, 7, 18, 0.98)
-        ),
-        #020617;
+      max-width: 1080px;
+      background: var(--bg-elevated);
       border-radius: 32px;
-      padding: 28px 24px 32px;
-      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 32px 32px 40px;
+      border: 1px solid rgba(148, 163, 184, 0.32);
       box-shadow: var(--shadow-soft);
       position: relative;
       overflow: hidden;
@@ -59,25 +54,25 @@
       content: "";
       position: absolute;
       border-radius: 999px;
-      filter: blur(40px);
-      opacity: 0.35;
+      filter: blur(60px);
+      opacity: 0.45;
       pointer-events: none;
     }
 
     .app::before {
-      width: 260px;
-      height: 260px;
-      background: radial-gradient(circle, #4f46e5, transparent 60%);
-      top: -80px;
-      right: -60px;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.35), transparent 65%);
+      top: -120px;
+      right: -120px;
     }
 
     .app::after {
-      width: 220px;
-      height: 220px;
-      background: radial-gradient(circle, #ec4899, transparent 60%);
-      bottom: -80px;
-      left: -50px;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(251, 191, 36, 0.3), transparent 65%);
+      bottom: -120px;
+      left: -100px;
     }
 
     header {
@@ -162,11 +157,11 @@
 
     .badge-pill {
       font-size: 0.8rem;
-      color: var(--text-muted);
-      padding: 6px 10px;
+      color: rgba(30, 41, 59, 0.85);
+      padding: 6px 12px;
       border-radius: 999px;
-      border: 1px dashed rgba(148, 163, 184, 0.5);
-      background: rgba(15, 23, 42, 0.7);
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+      background: rgba(226, 232, 240, 0.7);
       display: flex;
       align-items: center;
       gap: 6px;
@@ -183,18 +178,18 @@
     .primary-btn {
       border: none;
       border-radius: 999px;
-      padding: 9px 18px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      background: radial-gradient(circle at top left, #6366f1, #4f46e5);
-      color: white;
+      padding: 10px 20px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, #2563eb, #3b82f6);
+      color: #f8fafc;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4);
+      box-shadow: 0 14px 28px rgba(37, 99, 235, 0.25);
       transition: transform 0.12s ease, box-shadow 0.12s ease,
-        background 0.12s ease, translate 0.12s ease;
+        filter 0.12s ease;
       position: relative;
       z-index: 1;
     }
@@ -205,39 +200,33 @@
 
     .primary-btn:hover {
       transform: translateY(-1px);
-      box-shadow: 0 16px 32px rgba(79, 70, 229, 0.55);
+      box-shadow: 0 18px 34px rgba(37, 99, 235, 0.28);
+      filter: brightness(1.02);
     }
 
     .primary-btn:active {
       transform: translateY(0);
-      box-shadow: 0 6px 16px rgba(79, 70, 229, 0.4);
+      box-shadow: 0 10px 22px rgba(37, 99, 235, 0.2);
+      filter: brightness(0.98);
     }
 
     main {
-      margin-top: 20px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.9fr) minmax(0, 1fr);
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
       gap: 20px;
-      align-items: flex-start;
       position: relative;
       z-index: 1;
-    }
-
-    @media (max-width: 860px) {
-      main {
-        grid-template-columns: minmax(0, 1fr);
-      }
     }
 
     /* Games list */
 
     .games-panel {
-      background: radial-gradient(circle at top left, #020617, #020617 40%, #000);
+      background: linear-gradient(155deg, #ffffff 0%, #f8fbff 75%);
       border-radius: var(--radius-xl);
-      padding: 16px 16px 18px;
-      border: 1px solid var(--border-subtle);
-      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.75);
-      backdrop-filter: blur(18px);
+      padding: 20px 22px 24px;
+      border: 1px solid rgba(203, 213, 225, 0.7);
+      box-shadow: 0 22px 45px rgba(15, 23, 42, 0.12);
       min-height: 220px;
     }
 
@@ -262,9 +251,9 @@
       font-weight: 500;
       padding: 2px 8px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(75, 85, 99, 0.8);
-      color: var(--text-muted);
+      background: rgba(191, 219, 254, 0.35);
+      border: 1px solid rgba(59, 130, 246, 0.35);
+      color: #1d4ed8;
     }
 
     .panel-header small {
@@ -281,15 +270,15 @@
 
     .chip {
       font-size: 0.78rem;
-      padding: 4px 9px;
+      padding: 6px 11px;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
+      border: 1px solid rgba(148, 163, 184, 0.55);
       color: var(--text-muted);
       display: inline-flex;
       align-items: center;
       gap: 6px;
       cursor: default;
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(226, 232, 240, 0.35);
     }
 
     .chip strong {
@@ -304,49 +293,49 @@
     .search-input {
       width: 100%;
       border-radius: 999px;
-      border: 1px solid rgba(75, 85, 99, 0.9);
-      padding: 7px 12px 7px 28px;
-      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      padding: 9px 14px 9px 34px;
+      background: rgba(248, 250, 252, 0.85);
       color: var(--text-main);
       font-size: 0.85rem;
       outline: none;
-      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.7);
+      box-shadow: inset 0 1px 2px rgba(148, 163, 184, 0.18);
     }
 
     .search-input::placeholder {
-      color: rgba(148, 163, 184, 0.7);
+      color: rgba(148, 163, 184, 0.75);
     }
 
     .search-icon {
       position: absolute;
-      left: 9px;
+      left: 12px;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 0.8rem;
-      color: rgba(148, 163, 184, 0.8);
+      font-size: 0.85rem;
+      color: rgba(100, 116, 139, 0.9);
     }
 
     .games-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-      gap: 12px;
-      margin-top: 6px;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 8px;
     }
 
     .game-card {
-      background: radial-gradient(circle at top left, #020617, #020617 55%, #000);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(241, 245, 249, 0.96));
       border-radius: var(--radius-lg);
-      padding: 10px 10px 9px;
-      border: 1px solid rgba(55, 65, 81, 0.9);
+      padding: 16px 16px 18px;
+      border: 1px solid rgba(226, 232, 240, 0.9);
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 12px;
       position: relative;
       overflow: hidden;
       cursor: default;
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.9);
-      transition: transform 0.14s ease, box-shadow 0.14s ease,
-        border-color 0.14s ease, background 0.14s ease;
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12);
+      transition: transform 0.16s ease, box-shadow 0.16s ease,
+        border-color 0.16s ease;
     }
 
     .game-card::before {
@@ -354,20 +343,19 @@
       position: absolute;
       inset: 0;
       background: radial-gradient(
-        circle at top left,
-        rgba(79, 70, 229, 0.28),
-        transparent 55%
+        circle at 20% -10%,
+        rgba(59, 130, 246, 0.18),
+        transparent 60%
       );
       opacity: 0;
-      transition: opacity 0.18s ease;
+      transition: opacity 0.2s ease;
       pointer-events: none;
     }
 
     .game-card:hover {
-      transform: translateY(-2px) translateZ(0);
-      box-shadow: 0 18px 35px rgba(15, 23, 42, 0.95);
-      border-color: rgba(129, 140, 248, 0.9);
-      background: radial-gradient(circle at top left, #020617, #020617 40%, #000);
+      transform: translateY(-4px) translateZ(0);
+      box-shadow: 0 24px 45px rgba(15, 23, 42, 0.16);
+      border-color: rgba(148, 163, 184, 0.9);
     }
 
     .game-card:hover::before {
@@ -378,69 +366,124 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      gap: 6px;
+      gap: 12px;
+    }
+
+    .game-identity {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .game-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 22px;
+      background: var(--icon-gradient, linear-gradient(135deg, #6366f1, #8b5cf6));
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 16px 26px rgba(79, 70, 229, 0.18);
+      isolation: isolate;
+    }
+
+    .game-icon::before {
+      content: "";
+      position: absolute;
+      inset: -25%;
+      background: var(
+        --icon-spotlight,
+        radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.4), transparent 60%)
+      );
+      opacity: 0.85;
+    }
+
+    .game-icon::after {
+      content: "";
+      position: absolute;
+      inset: -35%;
+      background: var(
+        --icon-overlay,
+        radial-gradient(circle at 80% 80%, rgba(15, 23, 42, 0.15), transparent 65%)
+      );
+      mix-blend-mode: soft-light;
+    }
+
+    .icon-glyph {
+      position: relative;
+      font-size: 1.45rem;
+      filter: drop-shadow(0 6px 10px rgba(15, 23, 42, 0.22));
     }
 
     .game-title-block {
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 4px;
+      min-width: 0;
     }
 
     .game-name {
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 600;
       margin: 0;
+      color: var(--text-main);
     }
 
     .game-meta {
       display: flex;
       gap: 6px;
       align-items: center;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: rgba(148, 163, 184, 0.85);
+      letter-spacing: 0.16em;
+      color: rgba(100, 116, 139, 0.95);
+      flex-wrap: wrap;
     }
 
     .pill-free {
-      padding: 2px 7px;
+      padding: 2px 8px;
       border-radius: 999px;
-      border: 1px solid rgba(52, 211, 153, 0.8);
-      background: rgba(6, 95, 70, 0.3);
-      color: #a7f3d0;
-      font-size: 0.7rem;
+      border: 1px solid rgba(34, 197, 94, 0.5);
+      background: rgba(220, 252, 231, 0.85);
+      color: #047857;
+      font-size: 0.68rem;
     }
 
     .pill-paid {
-      padding: 2px 7px;
+      padding: 2px 8px;
       border-radius: 999px;
-      border: 1px solid rgba(129, 140, 248, 0.9);
-      background: rgba(30, 64, 175, 0.4);
-      color: #c7d2fe;
-      font-size: 0.7rem;
+      border: 1px solid rgba(59, 130, 246, 0.5);
+      background: rgba(191, 219, 254, 0.85);
+      color: #1d4ed8;
+      font-size: 0.68rem;
     }
 
     .pill-tag {
-      padding: 2px 7px;
+      padding: 2px 8px;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      background: rgba(15, 23, 42, 0.85);
-      color: var(--text-muted);
-      font-size: 0.7rem;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: rgba(226, 232, 240, 0.7);
+      color: rgba(71, 85, 105, 0.95);
+      font-size: 0.68rem;
     }
 
     .game-price {
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       font-weight: 600;
-      padding: 4px 9px;
+      padding: 6px 12px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.96);
-      border: 1px solid rgba(71, 85, 105, 0.9);
+      background: rgba(226, 232, 240, 0.6);
+      border: 1px solid rgba(203, 213, 225, 0.7);
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
       white-space: nowrap;
+      color: var(--text-main);
     }
 
     .game-price small {
@@ -450,26 +493,26 @@
     }
 
     .game-body {
-      font-size: 0.8rem;
+      font-size: 0.84rem;
       color: var(--text-muted);
-      line-height: 1.35;
-      min-height: 34px;
+      line-height: 1.5;
+      min-height: 36px;
     }
 
     .game-footer {
-      margin-top: 4px;
+      margin-top: 2px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 8px;
-      font-size: 0.75rem;
+      gap: 10px;
+      font-size: 0.78rem;
+      color: rgba(71, 85, 105, 0.9);
     }
 
     .game-footer-left {
       display: flex;
       gap: 8px;
       align-items: center;
-      color: rgba(148, 163, 184, 0.9);
     }
 
     .game-footer-dot {
@@ -477,26 +520,23 @@
       height: 7px;
       border-radius: 999px;
       background: #22c55e;
-      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.3);
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2);
     }
 
     .game-open-btn {
       font-size: 0.78rem;
       border-radius: 999px;
-      border: 1px solid rgba(129, 140, 248, 0.9);
-      padding: 5px 9px;
-      background: linear-gradient(
-        135deg,
-        rgba(79, 70, 229, 0.16),
-        rgba(37, 99, 235, 0.2)
-      );
-      color: #e5e7eb;
+      border: 1px solid rgba(37, 99, 235, 0.35);
+      padding: 6px 12px;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(96, 165, 250, 0.2));
+      color: #1d4ed8;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 6px;
       cursor: pointer;
       white-space: nowrap;
+      font-weight: 600;
     }
 
     .game-open-btn span {
@@ -506,215 +546,218 @@
     /* Form panel */
 
     .form-panel {
-      background: rgba(15, 23, 42, 0.98);
+      background: #ffffff;
       border-radius: var(--radius-xl);
-      padding: 16px 14px 18px;
-      border: 1px solid rgba(148, 163, 184, 0.55);
-      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.9);
-      backdrop-filter: blur(18px);
+      padding: 24px;
+      border: 1px solid rgba(203, 213, 225, 0.9);
+      box-shadow: 0 22px 55px rgba(15, 23, 42, 0.22);
+      max-width: 520px;
+      width: min(520px, 90vw);
     }
 
     .form-panel-header {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-      gap: 8px;
+      align-items: flex-start;
+      gap: 12px;
     }
 
     .form-panel-header h2 {
-      font-size: 0.98rem;
       margin: 0;
+      font-size: 1.25rem;
       display: flex;
       align-items: center;
-      gap: 7px;
+      gap: 10px;
+      color: var(--text-main);
     }
 
     .form-panel-header h2 span {
-      font-size: 0.85rem;
-      padding: 2px 8px;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #1d4ed8;
+      padding: 3px 10px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(75, 85, 99, 0.8);
-      color: var(--text-muted);
+      border: 1px solid rgba(59, 130, 246, 0.35);
+      background: rgba(191, 219, 254, 0.4);
     }
 
     .form-panel-header small {
-      font-size: 0.78rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
-      max-width: 260px;
+      display: block;
+      margin-top: 6px;
+      max-width: 360px;
     }
 
     form {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 16px;
+      margin-top: 18px;
     }
 
     .field {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 10px;
     }
 
     .field-label-row {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      gap: 6px;
+      gap: 10px;
     }
 
     label {
-      font-size: 0.8rem;
-      color: rgba(209, 213, 219, 0.96);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(30, 41, 59, 0.9);
     }
 
     .field-hint {
-      font-size: 0.7rem;
-      color: var(--text-muted);
+      font-size: 0.72rem;
+      color: rgba(100, 116, 139, 0.85);
     }
 
-    input[type="text"],
-    input[type="url"],
-    input[type="number"],
+    input,
     textarea {
-      border-radius: 10px;
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      background: rgba(15, 23, 42, 0.98);
+      border-radius: 14px;
+      border: 1px solid rgba(203, 213, 225, 0.9);
+      background: rgba(248, 250, 252, 0.75);
       color: var(--text-main);
-      padding: 6px 8px;
-      font-size: 0.82rem;
+      padding: 12px 14px;
+      font-size: 0.88rem;
       outline: none;
-      box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.7);
+      box-shadow: inset 0 1px 2px rgba(148, 163, 184, 0.12);
+      transition: border-color 0.12s ease, box-shadow 0.12s ease,
+        background 0.12s ease;
       resize: vertical;
       min-height: 0;
     }
 
     input::placeholder,
     textarea::placeholder {
-      color: rgba(148, 163, 184, 0.7);
+      color: rgba(148, 163, 184, 0.75);
     }
 
     input:focus,
     textarea:focus {
-      border-color: rgba(129, 140, 248, 0.95);
-      box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.7);
+      border-color: rgba(37, 99, 235, 0.65);
+      box-shadow: 0 0 0 3px rgba(191, 219, 254, 0.75);
+      background: #ffffff;
     }
 
     textarea {
-      min-height: 62px;
-      max-height: 140px;
+      min-height: 92px;
+      max-height: 220px;
     }
 
     .field-row-inline {
       display: flex;
-      gap: 10px;
-      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 14px;
     }
 
     .field-row-inline .field {
-      flex: 1;
+      flex: 1 1 200px;
     }
 
     .field-row-inline .field--sm {
-      max-width: 120px;
-      flex: 0 0 auto;
+      max-width: 160px;
+      flex: 1 1 120px;
     }
 
     .price-prefix {
       display: inline-flex;
       align-items: center;
-      gap: 3px;
+      gap: 4px;
       font-size: 0.75rem;
-      color: var(--text-muted);
+      color: rgba(100, 116, 139, 0.85);
     }
 
     .price-prefix strong {
-      color: var(--text-main);
+      color: rgba(30, 64, 175, 0.85);
+      letter-spacing: 0.16em;
     }
 
     .checkbox-row {
       display: flex;
       align-items: center;
-      gap: 6px;
-      font-size: 0.78rem;
-      color: var(--text-muted);
+      gap: 10px;
+      font-size: 0.82rem;
+      color: rgba(71, 85, 105, 0.95);
       margin: 2px 0 6px;
     }
 
     .checkbox-row input[type="checkbox"] {
-      width: 14px;
-      height: 14px;
-      border-radius: 4px;
-      border: 1px solid rgba(75, 85, 99, 0.9);
-      accent-color: #4f46e5;
+      width: 18px;
+      height: 18px;
+      border-radius: 6px;
+      border: 1px solid rgba(148, 163, 184, 0.65);
+      accent-color: #2563eb;
+      background: #ffffff;
     }
 
     .form-footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 10px;
-      margin-top: 4px;
+      gap: 12px;
+      margin-top: 6px;
+      flex-wrap: wrap;
     }
 
     .secondary-btn {
       border-radius: 999px;
-      border: 1px solid rgba(75, 85, 99, 0.9);
-      padding: 6px 10px;
-      font-size: 0.78rem;
-      background: rgba(15, 23, 42, 0.96);
-      color: var(--text-muted);
+      border: 1px solid rgba(203, 213, 225, 0.9);
+      padding: 8px 14px;
+      font-size: 0.8rem;
+      background: rgba(226, 232, 240, 0.6);
+      color: rgba(30, 41, 59, 0.9);
       display: inline-flex;
       align-items: center;
       gap: 6px;
       cursor: pointer;
+      font-weight: 500;
     }
 
     .submit-btn {
       border-radius: 999px;
       border: none;
-      padding: 7px 12px;
-      font-size: 0.82rem;
-      font-weight: 500;
-      background: linear-gradient(
-        135deg,
-        rgba(79, 70, 229, 0.95),
-        rgba(52, 211, 153, 0.95)
-      );
-      color: #f9fafb;
+      padding: 10px 18px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #f0fdf4;
       display: inline-flex;
       align-items: center;
       gap: 8px;
       cursor: pointer;
-      box-shadow: 0 10px 22px rgba(34, 197, 94, 0.4);
+      box-shadow: 0 14px 28px rgba(34, 197, 94, 0.25);
     }
 
     .submit-btn:active {
       transform: translateY(1px);
-      box-shadow: 0 6px 15px rgba(34, 197, 94, 0.45);
+      box-shadow: 0 8px 18px rgba(34, 197, 94, 0.28);
     }
 
     .error-text {
-      font-size: 0.75rem;
+      font-size: 0.78rem;
       color: var(--danger);
       margin-top: 4px;
       min-height: 1em;
     }
 
-    .status-text {
-      font-size: 0.75rem;
-      color: #a7f3d0;
-      margin-left: 4px;
-      min-height: 1em;
-    }
-
     .empty-state {
-      padding: 12px 10px;
-      border-radius: 14px;
-      border: 1px dashed rgba(75, 85, 99, 0.9);
-      background: rgba(15, 23, 42, 0.95);
-      font-size: 0.8rem;
+      padding: 16px 14px;
+      border-radius: 16px;
+      border: 1px dashed rgba(148, 163, 184, 0.7);
+      background: rgba(248, 250, 252, 0.8);
+      font-size: 0.82rem;
       color: var(--text-muted);
       display: flex;
       align-items: center;
@@ -723,6 +766,62 @@
 
     .empty-icon {
       font-size: 1rem;
+    }
+
+    .status-banner {
+      margin-top: 20px;
+      border-radius: 18px;
+      padding: 12px 18px;
+      background: linear-gradient(135deg, rgba(191, 219, 254, 0.9), rgba(219, 234, 254, 0.95));
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: #1d4ed8;
+      font-size: 0.82rem;
+      font-weight: 500;
+      display: none;
+    }
+
+    .status-banner.is-visible {
+      display: block;
+    }
+
+    .form-overlay {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 80px 16px;
+      background: rgba(15, 23, 42, 0.35);
+      backdrop-filter: blur(6px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      z-index: 10;
+    }
+
+    .form-overlay.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .form-overlay-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .form-close-btn {
+      border: none;
+      background: none;
+      color: rgba(100, 116, 139, 0.9);
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 4px;
+      line-height: 1;
+      transition: color 0.12s ease;
+    }
+
+    .form-close-btn:hover {
+      color: #1d4ed8;
     }
   </style>
 </head>
@@ -740,7 +839,7 @@
           </div>
           <p>
             A tiny “App Store” for your browser-based games. List them, price them,
-            and launch them in one click.
+            and watch custom AI-styled icons appear automatically for every release.
           </p>
         </div>
       </div>
@@ -749,12 +848,14 @@
           <span class="badge-dot"></span>
           Live preview — local only
         </div>
-        <button class="primary-btn" id="scrollToFormBtn" type="button">
+        <button class="primary-btn" id="openFormBtn" type="button">
           <span class="icon">➕</span>
-          <span>Add a new game</span>
+          <span>Add app</span>
         </button>
       </div>
     </header>
+
+    <div id="statusBanner" class="status-banner" role="status" aria-live="polite"></div>
 
     <main>
       <!-- Games panel -->
@@ -795,127 +896,132 @@
         <div id="emptyState" class="empty-state" style="display:none;">
           <span class="empty-icon">✨</span>
           <span>
-            No games yet. Add your first one on the right — it will appear here
-            instantly and stay saved in this browser.
+            No games yet. Tap “Add app” above to open the creator tools and publish
+            your first entry.
           </span>
         </div>
       </section>
-
-      <!-- Add game form -->
-      <section class="form-panel" id="formPanel">
-        <div class="form-panel-header">
-          <div>
-            <h2>
-              Add a game
-              <span>Creator tools</span>
-            </h2>
-            <small>
-              This doesn’t hook into real payments — prices here are for display
-              only, like a pitch deck for your personal store.
-            </small>
-          </div>
-        </div>
-
-        <form id="addGameForm" autocomplete="off">
-          <div class="field">
-            <div class="field-label-row">
-              <label for="gameName">Game name</label>
-              <span class="field-hint">E.g. “Life-Bot” or “Gravity Puzzler”</span>
+    </main>
+    <div
+      class="form-overlay"
+      id="formOverlay"
+      role="presentation"
+      aria-hidden="true"
+    >
+      <div class="form-overlay-content">
+        <section class="form-panel" id="formPanel" role="dialog" aria-modal="true" aria-labelledby="formTitle">
+          <div class="form-panel-header">
+            <div>
+              <h2 id="formTitle">
+                Add a game
+                <span>Creator tools</span>
+              </h2>
+              <small>
+                This doesn’t hook into real payments — prices here are for display
+                only, like a pitch deck for your personal store.
+              </small>
             </div>
-            <input
-              id="gameName"
-              type="text"
-              required
-              placeholder="Life-Bot"
-            />
+            <button type="button" class="form-close-btn" id="closeFormBtn" aria-label="Close add game form">×</button>
           </div>
 
-          <div class="field">
-            <div class="field-label-row">
-              <label for="gameUrl">Game URL</label>
-              <span class="field-hint">Any public link, e.g. Netlify, itch.io, etc.</span>
-            </div>
-            <input
-              id="gameUrl"
-              type="url"
-              required
-              placeholder="https://life-bot.netlify.app"
-            />
-          </div>
-
-          <div class="field-row-inline">
-            <div class="field field--sm">
+          <form id="addGameForm" autocomplete="off">
+            <div class="field">
               <div class="field-label-row">
-                <label for="gamePrice">
-                  Price
-                  <span class="price-prefix">
-                    <span>GBP</span>
-                    <strong>£</strong>
-                  </span>
-                </label>
+                <label for="gameName">Game name</label>
+                <span class="field-hint">E.g. “Life-Bot” or “Gravity Puzzler”</span>
               </div>
               <input
-                id="gamePrice"
-                type="number"
-                min="0"
-                step="0.01"
-                placeholder="0.00"
+                id="gameName"
+                type="text"
+                required
+                placeholder="Life-Bot"
               />
             </div>
 
             <div class="field">
               <div class="field-label-row">
-                <label for="gameTag">Tag / genre (optional)</label>
-                <span class="field-hint">“Puzzle”, “Roguelike”, “Prototype”…</span>
+                <label for="gameUrl">Game URL</label>
+                <span class="field-hint">Any public link, e.g. Netlify, itch.io, etc.</span>
               </div>
               <input
-                id="gameTag"
-                type="text"
-                placeholder="AI Sandbox"
+                id="gameUrl"
+                type="url"
+                required
+                placeholder="https://life-bot.netlify.app"
               />
             </div>
-          </div>
 
-          <div class="field">
-            <div class="field-label-row">
-              <label for="gameDescription">Short description</label>
-              <span class="field-hint">
-                1–2 sentences that tell players what’s interesting about it.
-              </span>
+            <div class="field-row-inline">
+              <div class="field field--sm">
+                <div class="field-label-row">
+                  <label for="gamePrice">
+                    Price
+                    <span class="price-prefix">
+                      <span>GBP</span>
+                      <strong>£</strong>
+                    </span>
+                  </label>
+                </div>
+                <input
+                  id="gamePrice"
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  placeholder="0.00"
+                />
+              </div>
+
+              <div class="field">
+                <div class="field-label-row">
+                  <label for="gameTag">Tag / genre (optional)</label>
+                  <span class="field-hint">“Puzzle”, “Roguelike”, “Prototype”…</span>
+                </div>
+                <input
+                  id="gameTag"
+                  type="text"
+                  placeholder="AI Sandbox"
+                />
+              </div>
             </div>
-            <textarea
-              id="gameDescription"
-              placeholder="An experimental AI companion that reacts to your input in surprising ways."
-            ></textarea>
-          </div>
 
-          <div class="checkbox-row">
-            <input type="checkbox" id="gameFeatured" />
-            <label for="gameFeatured">
-              Mark as featured prototype
-              <span style="opacity:0.7;">(adds a little highlight badge)</span>
-            </label>
-          </div>
+            <div class="field">
+              <div class="field-label-row">
+                <label for="gameDescription">Short description</label>
+                <span class="field-hint">
+                  1–2 sentences that tell players what’s interesting about it.
+                </span>
+              </div>
+              <textarea
+                id="gameDescription"
+                placeholder="An experimental AI companion that reacts to your input in surprising ways."
+              ></textarea>
+            </div>
 
-          <div class="form-footer">
-            <button type="button" class="secondary-btn" id="resetDataBtn">
-              <span>🧹</span>
-              <span>Reset games (this browser)</span>
-            </button>
+            <div class="checkbox-row">
+              <input type="checkbox" id="gameFeatured" />
+              <label for="gameFeatured">
+                Mark as featured prototype
+                <span style="opacity:0.7;">(adds a little highlight badge)</span>
+              </label>
+            </div>
 
-            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
+            <div class="form-footer">
+              <button type="button" class="secondary-btn" id="resetDataBtn">
+                <span>🧹</span>
+                <span>Reset games (this browser)</span>
+              </button>
+
               <button type="submit" class="submit-btn">
                 <span>Publish to store</span>
                 <span>⬆️</span>
               </button>
-              <span id="statusText" class="status-text"></span>
             </div>
-          </div>
 
-          <div id="errorText" class="error-text"></div>
-        </form>
-      </section>
-    </main>
+            <div id="errorText" class="error-text"></div>
+          </form>
+        </section>
+      </div>
+    </div>
   </div>
 
   <script>
@@ -992,14 +1098,16 @@
       const searchInput = document.getElementById("searchInput");
       const addGameForm = document.getElementById("addGameForm");
       const errorText = document.getElementById("errorText");
-      const statusText = document.getElementById("statusText");
+      const statusBanner = document.getElementById("statusBanner");
       const resetDataBtn = document.getElementById("resetDataBtn");
-      const scrollToFormBtn = document.getElementById("scrollToFormBtn");
-      const formPanel = document.getElementById("formPanel");
+      const openFormBtn = document.getElementById("openFormBtn");
+      const closeFormBtn = document.getElementById("closeFormBtn");
+      const formOverlay = document.getElementById("formOverlay");
 
       /** @type {Game[]} */
       let games = loadGames();
       let searchQuery = "";
+      let statusTimeout;
 
       function formatPrice(price) {
         if (isNaN(price) || price <= 0) return "Free";
@@ -1010,6 +1118,48 @@
         if (count === 0) return "No games";
         if (count === 1) return "1 game";
         return count + " games";
+      }
+
+      const ICON_GLYPHS = [
+        "🎮",
+        "🧠",
+        "🪐",
+        "🧩",
+        "🚀",
+        "🎲",
+        "🛸",
+        "🧬",
+        "🐉",
+        "⚙️",
+        "🌌",
+        "✨"
+      ];
+
+      function hashString(value) {
+        let hash = 0;
+        for (let i = 0; i < value.length; i += 1) {
+          hash = (hash << 5) - hash + value.charCodeAt(i);
+          hash |= 0;
+        }
+        return Math.abs(hash);
+      }
+
+      function generateIconDesign(name) {
+        const seed = hashString(name || "game");
+        const hueA = seed % 360;
+        const hueB = (seed >> 3) % 360;
+        const hueC = (seed >> 6) % 360;
+        const gradient = `linear-gradient(135deg, hsl(${hueA}, 90%, 70%), hsl(${
+          (hueA + 45) % 360
+        }, 78%, 60%))`;
+        const spotlight = `radial-gradient(circle at ${(seed % 60) + 20}% ${
+          (seed >> 7) % 50 + 20
+        }%, hsla(${hueB}, 95%, 72%, 0.9), transparent 62%)`;
+        const overlay = `radial-gradient(circle at ${(seed >> 2) % 100}% ${
+          (seed >> 5) % 100
+        }%, hsla(${hueC}, 80%, 25%, 0.22), transparent 68%)`;
+        const glyph = ICON_GLYPHS[seed % ICON_GLYPHS.length];
+        return { gradient, spotlight, overlay, glyph };
       }
 
       /** @param {Game[]} allGames */
@@ -1046,6 +1196,20 @@
           const header = document.createElement("div");
           header.className = "game-header";
 
+          const identity = document.createElement("div");
+          identity.className = "game-identity";
+
+          const icon = document.createElement("div");
+          icon.className = "game-icon";
+          const design = generateIconDesign(game.name + (game.tag || ""));
+          icon.style.setProperty("--icon-gradient", design.gradient);
+          icon.style.setProperty("--icon-spotlight", design.spotlight);
+          icon.style.setProperty("--icon-overlay", design.overlay);
+          const glyph = document.createElement("span");
+          glyph.className = "icon-glyph";
+          glyph.textContent = design.glyph;
+          icon.appendChild(glyph);
+
           const titleBlock = document.createElement("div");
           titleBlock.className = "game-title-block";
 
@@ -1081,6 +1245,9 @@
           titleBlock.appendChild(nameEl);
           titleBlock.appendChild(metaRow);
 
+          identity.appendChild(icon);
+          identity.appendChild(titleBlock);
+
           const priceEl = document.createElement("div");
           priceEl.className = "game-price";
           const formatted = formatPrice(game.price);
@@ -1091,7 +1258,7 @@
             priceEl.appendChild(simText);
           }
 
-          header.appendChild(titleBlock);
+          header.appendChild(identity);
           header.appendChild(priceEl);
 
           const body = document.createElement("p");
@@ -1138,13 +1305,43 @@
         errorText.textContent = message || "";
       }
 
+      function openForm() {
+        if (!formOverlay) return;
+        formOverlay.classList.add("is-visible");
+        formOverlay.setAttribute("aria-hidden", "false");
+        requestAnimationFrame(() => {
+          const nameInput = document.getElementById("gameName");
+          if (nameInput) {
+            nameInput.focus();
+          }
+        });
+      }
+
+      function closeForm() {
+        if (!formOverlay) return;
+        formOverlay.classList.remove("is-visible");
+        formOverlay.setAttribute("aria-hidden", "true");
+        showError("");
+      }
+
       function showStatus(message) {
-        statusText.textContent = message || "";
-        if (message) {
-          setTimeout(() => {
-            statusText.textContent = "";
-          }, 2200);
+        if (!statusBanner) return;
+        if (statusTimeout) {
+          clearTimeout(statusTimeout);
+          statusTimeout = undefined;
         }
+        if (!message) {
+          statusBanner.textContent = "";
+          statusBanner.classList.remove("is-visible");
+          return;
+        }
+        statusBanner.textContent = message;
+        statusBanner.classList.add("is-visible");
+        statusTimeout = setTimeout(() => {
+          statusBanner.classList.remove("is-visible");
+          statusBanner.textContent = "";
+          statusTimeout = undefined;
+        }, 2600);
       }
 
       // Handlers
@@ -1212,6 +1409,7 @@
         renderGamesList(games);
 
         addGameForm.reset();
+        closeForm();
         showStatus("Game published to this browser’s store.");
       });
 
@@ -1232,10 +1430,35 @@
         }
       });
 
-      scrollToFormBtn.addEventListener("click", () => {
-        formPanel.scrollIntoView({ behavior: "smooth", block: "start" });
-        const nameInput = document.getElementById("gameName");
-        setTimeout(() => nameInput.focus(), 400);
+      if (openFormBtn) {
+        openFormBtn.addEventListener("click", () => {
+          showError("");
+          openForm();
+        });
+      }
+
+      if (closeFormBtn) {
+        closeFormBtn.addEventListener("click", () => {
+          closeForm();
+        });
+      }
+
+      if (formOverlay) {
+        formOverlay.addEventListener("click", (event) => {
+          if (event.target === formOverlay) {
+            closeForm();
+          }
+        });
+      }
+
+      document.addEventListener("keydown", (event) => {
+        if (
+          event.key === "Escape" &&
+          formOverlay &&
+          formOverlay.classList.contains("is-visible")
+        ) {
+          closeForm();
+        }
       });
 
       // Initial render
